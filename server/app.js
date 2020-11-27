@@ -8,8 +8,5 @@ app.use(express.urlencoded({ extended: false }))
 
 
 app.use(router)
-app.get('*', (req, res) => {
-  res.send('hello')
-})
 
 module.exports = app
