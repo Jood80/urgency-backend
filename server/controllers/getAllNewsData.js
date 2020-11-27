@@ -8,7 +8,12 @@ module.exports = (_, res) => {
     language: 'en',
     country: 'us'
   }).then(response => {
-    res.send(response)
+     res.send({
+      response,
+      seo: {
+        description: 'News',
+        keywords: 'technology'
+      }})
   }).catch(err => res.send(err))
 }
 
