@@ -7,6 +7,6 @@ exports.Error404 = (req, res) => {
 exports.Error500 = (err, req, res, next) => {
   res.status(500).json({
     StatusCode: '500',
-    data: { message: ' Interanl Server Error 500 ', err },
+    data: { message: ' Interanl Server Error 500. ', err },
   });
 };
