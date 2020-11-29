@@ -7,7 +7,7 @@ const postUsers = require('./postUsers')
 const { Error404, Error500 } = require('../helpers');
 
 router.get('/api/news',cors() , getAllNewData)
-router.post('/api/signUp', postUsers)
+router.post('/api/signUp',cors(), postUsers)
 
 router.use(Error404);
 router.use(Error500);
