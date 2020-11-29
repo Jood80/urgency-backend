@@ -4,7 +4,7 @@ DROP TABLE if EXISTS userInfo CASCADE;
 
 CREATE TABLE userInfo(
   id SERIAL PRIMARY key NOT NULL,
-  user_name VARCHAR(100) NOT NULL,
+  user_name VARCHAR(100) NOT NULL UNIQUE,
   password TEXT NOT NULL,
   email VARCHAR(50) NOT NULL  
 );

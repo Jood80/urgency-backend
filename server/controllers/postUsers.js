@@ -8,12 +8,15 @@ module.exports = (req, res) => {
       console.log("res", result);
       postUserQuery(result)
         .then(response => {
-          console.log(response);
-          if (response.rowCount === 1) return res.status(200).json({ message: 'user has been created successfully' })
+          if (response.rowCount === 1) {
+            return res.status(200).send({ message: 'user has been created successfully' })
+          }
         })
-        .catch(err => res
-          .status(400)
-          .json({ message: 'An error occured! Make sure you filled all the fields.' })
-        )
+        .catch(err => {
+          if(err.detail.includes('exists')) res.status(400).json({ message: 'Email is already exits' })
+          res
+            .status(400)
+            .json({ message: 'An error occured! Make sure you filled all the fields.' })
+        })
     }) 
 }
